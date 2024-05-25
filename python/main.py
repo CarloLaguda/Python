@@ -336,3 +336,87 @@ print(text.strip())  # Output: "hello world"
 text = "hello world"
 print(text.upper())  # Output: "HELLO WORLD"
 
+import datetime
+
+# Creare una data
+data = datetime.date(2018, 12, 31)
+print("Data:", data)
+
+# Ottenere il giorno della settimana
+giorno_settimana = data.strftime("%A")
+print("Giorno della settimana:", giorno_settimana)
+
+# Ottenere il numero del giorno nell'anno
+numero_giorno_anno = data.strftime("%j")
+print("Numero del giorno nell'anno:", numero_giorno_anno)
+
+# Ottenere la settimana dell'anno
+settimana_anno = data.strftime("%W")
+print("Settimana dell'anno:", settimana_anno)
+
+# Ottenere il nome e il numero del mese
+nome_mese = data.strftime("%B")
+numero_mese = data.strftime("%m")
+print("Mese:", nome_mese, "(", numero_mese, ")")
+
+# Creiamo un oggetto datetime con una data specifica (ad esempio: 2024-05-29)
+x = datetime.datetime(2024, 5, 29)
+
+# Utilizziamo il metodo strftime per ottenere l'abbreviazione del giorno della settimana
+print(x.strftime("%a"))  # Output: Tue (Martedì)
+import datetime
+
+# Creiamo un oggetto datetime con una data specifica (ad esempio: 2024-05-29)
+x = datetime.datetime(2024, 5, 29)
+
+# Utilizziamo il metodo strftime per ottenere il nome abbreviato del mese
+print(x.strftime("%b"))  # Output: May (Maggio)
+
+# Formattare la data
+data_formattata = data.strftime("%Y-%m-%d")
+print("Data formattata:", data_formattata)
+
+# Aggiungere o sottrarre giorni
+nuova_data = data + datetime.timedelta(days=5)
+print("Nuova data (aggiungendo 5 giorni):", nuova_data)
+
+# Ottenere la data e l'ora corrente
+data_ora_corrente = datetime.datetime.now()
+print("Data e ora correnti:", data_ora_corrente)
+
+# Ottenere solo l'ora corrente
+ora_corrente = data_ora_corrente.strftime("%H:%M:%S")
+print("Ora corrente:", ora_corrente)
+
+
+#Ciclo while
+
+i = 0
+while i < 6:
+    i += 1
+    if i == 3:
+        continue  # Salta l'iterazione corrente se i è uguale a 3
+    print(i)  # Stampa il valore di i
+
+    if i == 5:
+        break  # Esce dal ciclo se i è uguale a 5
+
+else:
+    print("Il ciclo è terminato senza incontrare il break.")  # Stampato se il ciclo termina normalmente
+
+
+#Ciclo For 
+
+fruits = ["apple", "banana", "cherry"]
+
+for x in fruits:
+    if x == "banana":
+        break  # Se il valore corrente è "banana", esce dal ciclo
+    if x == "cherry":
+        continue  # Se il valore corrente è "cherry", salta il resto del blocco e passa alla prossima iterazione
+    print(x)  # Stampa il valore corrente
+
+else:
+    print("Il ciclo è terminato senza incontrare il break.")  # Stampa se il ciclo termina normalmente senza l'uso di break
+
+
