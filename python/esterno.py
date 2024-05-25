@@ -1,4 +1,7 @@
-
+# -*- coding: utf-8 -*-
+"""
+@author: Laguda Carlo
+"""
 class Utente:
     def __init__(self):
         self.nome = "Pio"

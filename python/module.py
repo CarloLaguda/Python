@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+"""
+@author: Laguda Carlo
+"""
 # Definiamo una funzione di saluto che accetta un nome come parametro e restituisce un saluto personalizzato
 def greet(name):
     return f"Hello, {name}!"

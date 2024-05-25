@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+"""
+@author: Laguda Carlo
+"""
 from esterno import Utente
 from sportivo import Sportivo
 

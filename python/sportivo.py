@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
+"""
+@author: Laguda Carlo
+"""
 from esterno import Utente
-from datetime import datetime
-
+import datetime
 class Sportivo(Utente):
     def __init__(self, utente1):
         self.nome = utente1.nome
