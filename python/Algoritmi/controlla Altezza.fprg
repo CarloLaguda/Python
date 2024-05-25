@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="net"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-11-13 11:42:40 "/>
+        <attribute name="created" value="bmV0O0xBQlhYLVhYOzIwMjMtMTAtMzA7IjEwOjI3OjAxICI7MjEwOA=="/>
+        <attribute name="edited" value="bmV0O0xBQlhYLVhYOzIwMjMtMTAtMzA7IjExOjA4OjMzICI7NjsyMjI2"/>
+        <attribute name="edited" value="bHVjaWZvcmEuc2FsdmF0b3JlO0NBRDItUFJPRjsyMDIzLTExLTEzOyIxMTo0Mjo0MCAiOzM7Mzc3Mg=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="Questo programma controlla una stringa, ad esempio non pu&#242; contenere numeri o caratteri speciali."/>
+            <declare name="altezza" type="Real" array="False" size=""/>
+            <output expression="&quot;Inserisci un numero con  la virgola: &quot;" newline="True"/>
+            <input variable="altezza"/>
+            <assign variable="altezza" expression="controllaAltezza(altezza)"/>
+        </body>
+    </function>
+    <function name="controllaAltezza" type="Real" variable="altezza">
+        <parameters>
+            <parameter name="altezza" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="ripeti" type="Boolean" array="False" size=""/>
+            <assign variable="ripeti" expression="false"/>
+            <do expression="ripeti">
+                <if expression="(altezza&gt;0.3) &amp;&amp; (altezza&lt;2.2)">
+                    <then>
+                        <assign variable="ripeti" expression="false"/>
+                    </then>
+                    <else>
+                        <assign variable="ripeti" expression="true"/>
+                        <output expression="&quot;Hai inserito un dato errato, l'altezza deve essere maggiore di 0,3 e minore di 2,2 metri. Riprova:&quot;" newline="True"/>
+                        <input variable="altezza"/>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="controllaNomeUtente" type="String" variable="nomeUtente">
+        <parameters>
+            <parameter name="nomeUtente" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="ripeti" type="Boolean" array="False" size=""/>
+            <declare name="lunghezzaStringa, i" type="Integer" array="False" size=""/>
+            <do expression="ripeti">
+                <assign variable="lunghezzaStringa" expression="Len(nomeUtente)"/>
+                <assign variable="ripeti" expression="false"/>
+                <for variable="i" start="0" end="lunghezzaStringa-1" direction="inc" step="1">
+                    <if expression="( (Char(nomeUtente, i) &gt;= &quot;A&quot;) &amp;&amp; (Char(nomeUtente, i) &lt;= &quot;Z&quot;) ) ||&#13;&#10;( (Char(nomeUtente, i) &gt;= &quot;a&quot;) &amp;&amp; (Char(nomeUtente, i) &lt; &quot;z&quot;) )">
+                        <then/>
+                        <else>
+                            <if expression="(Char(nomeUtente, i) =&quot;&#224;&quot;) ||&#13;&#10;(Char(nomeUtente, i) =&quot;&#233;&quot;) ||&#13;&#10;(Char(nomeUtente, i) =&quot;&#233;&quot;) ||&#13;&#10;(Char(nomeUtente, i) =&quot;&#236;&quot;) ||&#13;&#10;(Char(nomeUtente, i) =&quot;&#242;&quot;)">
+                                <then/>
+                                <else>
+                                    <assign variable="ripeti" expression="true"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </for>
+                <if expression="ripeti">
+                    <then>
+                        <output expression="&quot;Hai commesso un errore, reInserisci la stringa:&quot;" newline="True"/>
+                        <input variable="nomeUtente"/>
+                    </then>
+                    <else/>
+                </if>
+            </do>
+        </body>
+    </function>
+</flowgorithm>

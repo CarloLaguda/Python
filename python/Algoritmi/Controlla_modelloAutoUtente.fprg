@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="net"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-11-04 02:38:58 "/>
+        <attribute name="created" value="bmV0O0xBQlhYLVhYOzIwMjMtMTAtMzA7IjEwOjI5OjMzICI7MjExNQ=="/>
+        <attribute name="edited" value="bmV0O0xBQlhYLVhYOzIwMjMtMTAtMzA7IjExOjQyOjQ2ICI7MjI7MjI3NA=="/>
+        <attribute name="edited" value="bGFndWQ7UEMtREVMLUNBUkxPTkU7MjAyMy0xMS0wNDsiMDI6Mzg6NTggIjs0NTsyODQ5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="Realizzato da: Federico Cupardo e Carlo Laguda&#13;&#10;"/>
+            <comment text="questa funzione controlla il modello dell'auto e la rispettiva targa"/>
+            <declare name="ModelloautoUtente" type="String" array="False" size=""/>
+            <output expression="&quot;Inserisci Il tuo modello auto&quot;" newline="True"/>
+            <input variable="ModelloautoUtente"/>
+            <assign variable="ModelloautoUtente" expression="ControllaModelloautoUtente(ModelloautoUtente)"/>
+        </body>
+    </function>
+    <function name="ControllaModelloautoUtente" type="String" variable="ModelloautoUtente">
+        <parameters>
+            <parameter name="ModelloautoUtente" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="Ripeti" type="Boolean" array="False" size=""/>
+            <declare name="LunghezzaStringa, i" type="Integer" array="False" size=""/>
+            <do expression="Ripeti">
+                <assign variable="LunghezzaStringa" expression="Len(ModelloautoUtente)"/>
+                <assign variable="ripeti" expression="false"/>
+                <if expression="LunghezzaStringa&gt;1">
+                    <then>
+                        <for variable="i" start="0" end="LunghezzaStringa-1" direction="inc" step="1">
+                            <if expression="((Char( ModelloautoUtente, i) &gt;= &quot;A&quot;) &amp;&amp; (Char( ModelloautoUtente, i) &lt;= &quot;Z&quot;)) ||&#13;&#10;((Char( ModelloautoUtente, i) &gt;= &quot;a&quot;) &amp;&amp; (Char( ModelloautoUtente, i) &lt; &quot;z&quot;)) || &#13;&#10;(ToCode(Char(ModelloautoUtente,i)) = 32)">
+                                <then/>
+                                <else>
+                                    <if expression="(Char(ModelloautoUtente, i)= &quot;&#232;&quot;) || &#13;&#10;(Char(ModelloautoUtente, i)= &quot;&#233;&quot; )||&#13;&#10;(Char(ModelloautoUtente, i)= &quot;&#224;&quot;) ||   &#13;&#10;(Char(ModelloautoUtente, i)= &quot;&#242;&quot;) ||&#13;&#10;(Char(ModelloautoUtente, i)= &quot;&#249;&quot;) ||&#13;&#10;(Char(ModelloautoUtente, i)= &quot;&#233;&quot;) ||&#13;&#10;(Char(ModelloautoUtente, i)= &quot;&#236;&quot;)">
+                                        <then/>
+                                        <else>
+                                            <if expression="(Char(ModelloautoUtente, i)= &quot;0&quot;) || &#13;&#10;(Char(ModelloautoUtente, i)= &quot;1&quot;) || &#13;&#10;(Char(ModelloautoUtente, i)= &quot;2&quot;) || &#13;&#10;(Char(ModelloautoUtente, i)= &quot;3&quot;) || &#13;&#10;(Char(ModelloautoUtente, i)= &quot;4&quot;) || &#13;&#10;(Char(ModelloautoUtente, i)= &quot;5&quot;) || &#13;&#10;(Char(ModelloautoUtente, i)= &quot;6&quot;) || &#13;&#10;(Char(ModelloautoUtente, i)= &quot;7&quot;) || &#13;&#10;(Char(ModelloautoUtente, i)= &quot;8&quot;) || &#13;&#10;(Char(ModelloautoUtente, i)= &quot;9&quot;)">
+                                                <then/>
+                                                <else>
+                                                    <assign variable="ripeti" expression="true"/>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </for>
+                    </then>
+                    <else>
+                        <assign variable="ripeti" expression="true"/>
+                    </else>
+                </if>
+                <if expression="ripeti">
+                    <then>
+                        <output expression="&quot;Hai commesso un errore, rinserisci il tuo modello auto&quot;" newline="True"/>
+                        <input variable="ModelloautoUtente"/>
+                    </then>
+                    <else/>
+                </if>
+            </do>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="net"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-10-30 11:08:33 "/>
+        <attribute name="created" value="bmV0O0xBQlhYLVhYOzIwMjMtMTAtMzA7IjEwOjI3OjAxICI7MjEwOA=="/>
+        <attribute name="edited" value="bmV0O0xBQlhYLVhYOzIwMjMtMTAtMzA7IjExOjA4OjMzICI7NjsyMjI2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="Questo programma controlla una stringa, ad esempio non pu&#242; contenere numeri o caratteri speciali."/>
+            <declare name="nomeUtente" type="String" array="False" size=""/>
+            <output expression="&quot;Inserisci una stringa:&quot;" newline="True"/>
+            <input variable="nomeUtente"/>
+            <assign variable="nomeUtente" expression="controllaNomeUtente(nomeUtente)"/>
+        </body>
+    </function>
+    <function name="controllaNomeUtente" type="String" variable="nomeUtente">
+        <parameters>
+            <parameter name="nomeUtente" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="ripeti" type="Boolean" array="False" size=""/>
+            <declare name="lunghezzaStringa, i" type="Integer" array="False" size=""/>
+            <do expression="ripeti">
+                <assign variable="lunghezzaStringa" expression="Len(nomeUtente)"/>
+                <assign variable="ripeti" expression="false"/>
+                <for variable="i" start="0" end="lunghezzaStringa-1" direction="inc" step="1">
+                    <if expression="( (Char(nomeUtente, i) &gt;= &quot;A&quot;) &amp;&amp; (Char(nomeUtente, i) &lt;= &quot;Z&quot;) ) ||&#13;&#10;( (Char(nomeUtente, i) &gt;= &quot;a&quot;) &amp;&amp; (Char(nomeUtente, i) &lt; &quot;z&quot;) )">
+                        <then/>
+                        <else>
+                            <if expression="(Char(nomeUtente, i) =&quot;&#224;&quot;) ||&#13;&#10;(Char(nomeUtente, i) =&quot;&#233;&quot;) ||&#13;&#10;(Char(nomeUtente, i) =&quot;&#233;&quot;) ||&#13;&#10;(Char(nomeUtente, i) =&quot;&#236;&quot;) ||&#13;&#10;(Char(nomeUtente, i) =&quot;&#242;&quot;)">
+                                <then/>
+                                <else>
+                                    <assign variable="ripeti" expression="true"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </for>
+                <if expression="ripeti">
+                    <then>
+                        <output expression="&quot;Hai commesso un errore, reInserisci la stringa:&quot;" newline="True"/>
+                        <input variable="nomeUtente"/>
+                    </then>
+                    <else/>
+                </if>
+            </do>
+        </body>
+    </function>
+</flowgorithm>

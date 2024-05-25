@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="lucifora.salvatore"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-09-21 10:49:07 "/>
+        <attribute name="created" value="bHVjaWZvcmEuc2FsdmF0b3JlO0lORi1QUk9GOzIwMjMtMDktMjE7IjEwOjM0OjM0ICI7MzY0Mg=="/>
+        <attribute name="edited" value="bHVjaWZvcmEuc2FsdmF0b3JlO0lORi1QUk9GOzIwMjMtMDktMjE7IjEwOjQ5OjA3ICI7NTszNzYw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="etaUtente" type="Integer" array="False" size=""/>
+            <output expression="&quot;Inserisci la tua et&#224;:&quot;" newline="True"/>
+            <input variable="etaUtente"/>
+            <assign variable="etaUtente" expression="controllaEta(etaUtente)"/>
+        </body>
+    </function>
+    <function name="controllaEta" type="Integer" variable="etaUtente">
+        <parameters>
+            <parameter name="etaUtente" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="ripeti" type="Boolean" array="False" size=""/>
+            <assign variable="ripeti" expression="false"/>
+            <do expression="ripeti">
+                <if expression="(etaUtente&gt;0) &amp;&amp; (etaUtente&lt;120)">
+                    <then>
+                        <assign variable="ripeti" expression="false"/>
+                    </then>
+                    <else>
+                        <assign variable="ripeti" expression="true"/>
+                        <output expression="&quot;Hai inserito un dato errato, l'et&#224; deve essere maggiore di 0 e minore di 120. Riprova&quot;" newline="True"/>
+                        <input variable="etaUtente"/>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+</flowgorithm>

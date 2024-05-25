@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="lucifora.salvatore"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-10-03 12:26:22 "/>
+        <attribute name="created" value="bHVjaWZvcmEuc2FsdmF0b3JlO0lORi1QUk9GOzIwMjMtMDktMjE7IjEwOjM0OjM0ICI7MzY0Mg=="/>
+        <attribute name="edited" value="bHVjaWZvcmEuc2FsdmF0b3JlO0lORi1QUk9GOzIwMjMtMTAtMDM7IjEyOjI2OjIyICI7MTE7Mzc5MQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="gN, mN, aN" type="Integer" array="False" size=""/>
+            <declare name="dataNascitaUtente" type="String" array="False" size=""/>
+            <output expression="&quot;Inserisci il tuo giorno di nascita:&quot;" newline="True"/>
+            <input variable="gN"/>
+            <output expression="&quot;Inserisci il tuo mese di nascita:&quot;" newline="True"/>
+            <input variable="mN"/>
+            <output expression="&quot;Inserisci il tuo anno di nascita:&quot;" newline="True"/>
+            <input variable="aN"/>
+            <assign variable="dataNascitaUtente" expression="controllaDataNascita(gN,mN,aN)"/>
+            <output expression="&quot;Sei nato il &quot; &amp; dataNascitaUtente" newline="True"/>
+        </body>
+    </function>
+    <function name="controllaDataNascita" type="String" variable="dataNascitaUtente">
+        <parameters>
+            <parameter name="gN" type="Integer" array="False"/>
+            <parameter name="mN" type="Integer" array="False"/>
+            <parameter name="aN" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="dataNascitaUtente" type="String" array="False" size=""/>
+            <declare name="maxGiornoMese" type="Integer" array="False" size=""/>
+            <if expression="(mN==1) || (mN==3) || (mN==5) || (mN==7) || (mN==8) || (mN==10) || (mN==12)">
+                <then>
+                    <assign variable="maxGiornoMese" expression="31"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="(mN==4) || (mN==6) || (mN==9) || (mN==11)">
+                <then>
+                    <assign variable="maxGiornoMese" expression="30"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="mN==2">
+                <then>
+                    <if expression="(aN % 4) == 0">
+                        <then>
+                            <assign variable="maxGiornoMese" expression="29"/>
+                        </then>
+                        <else>
+                            <assign variable="maxGiornoMese" expression="28"/>
+                        </else>
+                    </if>
+                </then>
+                <else/>
+            </if>
+            <if expression="gN &lt;= maxGiornoMese">
+                <then>
+                    <assign variable="dataNascitaUtente" expression="gN &amp; &quot;/&quot; &amp; mN &amp; &quot;/&quot; &amp; aN"/>
+                </then>
+                <else>
+                    <output expression="&quot;La data inserita &#232; errata, riprova.&quot;" newline="True"/>
+                    <output expression="&quot;Inserisci il tuo giorno di nascita:&quot;" newline="True"/>
+                    <input variable="gN"/>
+                    <output expression="&quot;Inserisci il tuo mese di nascita:&quot;" newline="True"/>
+                    <input variable="mN"/>
+                    <output expression="&quot;Inserisci il tuo anno di nascita:&quot;" newline="True"/>
+                    <input variable="aN"/>
+                    <assign variable="dataNascitaUtente" expression="controllaDataNascita(gN,mN,aN)"/>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="controllaEta" type="Integer" variable="etaUtente">
+        <parameters>
+            <parameter name="etaUtente" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="ripeti" type="Boolean" array="False" size=""/>
+            <assign variable="ripeti" expression="false"/>
+            <do expression="ripeti">
+                <if expression="(etaUtente&gt;0) &amp;&amp; (etaUtente&lt;120)">
+                    <then>
+                        <assign variable="ripeti" expression="false"/>
+                    </then>
+                    <else>
+                        <assign variable="ripeti" expression="true"/>
+                        <output expression="&quot;Hai inserito un dato errato, l'et&#224; deve essere maggiore di 0 e minore di 120. Riprova&quot;" newline="True"/>
+                        <input variable="etaUtente"/>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+</flowgorithm>

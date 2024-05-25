@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="lucifora"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-08 02:52:47 "/>
+        <attribute name="created" value="bHVjaWZvcmE7REVTS1RPUC1VR1RON0U4OzIwMjQtMDQtMjI7IjA5OjIyOjU5ICI7MzEzMg=="/>
+        <attribute name="edited" value="bHVjaWZvcmE7REVTS1RPUC1VR1RON0U4OzIwMjQtMDQtMjI7IjA5OjQzOjU2ICI7NDszMjQz"/>
+        <attribute name="edited" value="bHVjaWZvcmEuc2FsdmF0b3JlO1NJUy0yOTsyMDI0LTA1LTA4OyIwMjo1Mjo0NyAiOzI1OzM2MjU="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="eta, giornoNascita, meseNascita, annoNascita" type="Integer" array="False" size=""/>
+            <declare name="nome, cognome, indirizzo" type="String" array="False" size=""/>
+            <declare name="altezza" type="Real" array="False" size=""/>
+            <assign variable="nome" expression="chiediNome()"/>
+            <assign variable="cognome" expression="chiediCognome()"/>
+            <assign variable="indirizzo" expression="chiediIndirizzo()"/>
+            <assign variable="eta" expression="chiediEta()"/>
+            <assign variable="altezza" expression="chiediAltezza()"/>
+            <assign variable="giornoNascita" expression="chiediGiornoNascita()"/>
+            <assign variable="meseNascita" expression="chiediMeseNascita()"/>
+            <assign variable="annoNascita" expression="chiediAnnoNascita()"/>
+            <call expression="stampaMessaggioFinale(nome,cognome,eta,altezza,indirizzo,giornoNascita,meseNascita, annoNascita)"/>
+        </body>
+    </function>
+    <function name="chiediAltezza" type="Real" variable="altezza">
+        <parameters/>
+        <body>
+            <declare name="altezza" type="Real" array="False" size=""/>
+            <declare name="maggiorenne, ripeti" type="Boolean" array="False" size=""/>
+            <do expression="ripeti">
+                <output expression="&quot;inserisci la tua altezza in metri usando il punto come separatore decimale: &quot;" newline="True"/>
+                <input variable="altezza"/>
+                <if expression="altezza &lt; 2.3">
+                    <then>
+                        <if expression="altezza &gt; 0.5">
+                            <then>
+                                <assign variable="ripeti" expression="false"/>
+                            </then>
+                            <else>
+                                <assign variable="ripeti" expression="true"/>
+                                <output expression="&quot;hai inserito un dato sbagliato, deve essere maggiore a 0,5. Riprova: &quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <assign variable="ripeti" expression="true"/>
+                        <output expression="&quot;hai inserito un dato sbagliato, deve essere minore di 2,3 metri. Riprova: &quot;" newline="True"/>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="chiediAnnoNascita" type="Integer" variable="annoNascita">
+        <parameters/>
+        <body>
+            <declare name="annoNascita" type="Integer" array="False" size=""/>
+            <declare name="maggiorenne, ripeti" type="Boolean" array="False" size=""/>
+            <do expression="ripeti">
+                <output expression="&quot;inserisci il tuo anno di nascita: &quot;" newline="True"/>
+                <input variable="annoNascita"/>
+                <if expression="annoNascita&gt;1930">
+                    <then>
+                        <if expression="annoNascita&lt;2024">
+                            <then>
+                                <assign variable="ripeti" expression="false"/>
+                            </then>
+                            <else>
+                                <assign variable="ripeti" expression="true"/>
+                                <output expression="&quot;hai inserito un dato sbagliato, deve essere minore di 2024. Riprova: &quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <assign variable="ripeti" expression="true"/>
+                        <output expression="&quot;hai inserito un dato sbagliato, deve essere maggiore di 1930. Riprova: &quot;" newline="True"/>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="chiediCognome" type="String" variable="cognome">
+        <parameters/>
+        <body>
+            <declare name="cognome" type="String" array="False" size=""/>
+            <output expression="&quot;inserisci cognome: &quot;" newline="True"/>
+            <input variable="cognome"/>
+        </body>
+    </function>
+    <function name="chiediEta" type="Integer" variable="eta">
+        <parameters/>
+        <body>
+            <declare name="eta" type="Integer" array="False" size=""/>
+            <declare name="maggiorenne, ripeti" type="Boolean" array="False" size=""/>
+            <do expression="ripeti">
+                <output expression="&quot;inserisci la tua eta: &quot;" newline="True"/>
+                <input variable="eta"/>
+                <if expression="eta&lt;120">
+                    <then>
+                        <if expression="eta&gt;=0">
+                            <then>
+                                <assign variable="ripeti" expression="false"/>
+                            </then>
+                            <else>
+                                <assign variable="ripeti" expression="true"/>
+                                <output expression="&quot;hai inserito un dato sbagliato, deve essere maggiore o uguale a 0. Riprova: &quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <assign variable="ripeti" expression="true"/>
+                        <output expression="&quot;hai inserito un dato sbagliato, deve essere minore di 120. Riprova: &quot;" newline="True"/>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="chiediGiornoNascita" type="Integer" variable="giornoNascita">
+        <parameters/>
+        <body>
+            <declare name="giornoNascita" type="Integer" array="False" size=""/>
+            <declare name="maggiorenne, ripeti" type="Boolean" array="False" size=""/>
+            <do expression="ripeti">
+                <output expression="&quot;inserisci il tuo giorno di nascita: &quot;" newline="True"/>
+                <input variable="giornoNascita"/>
+                <if expression="giornoNascita&gt;0">
+                    <then>
+                        <if expression="giornoNascita&lt;32">
+                            <then>
+                                <assign variable="ripeti" expression="false"/>
+                            </then>
+                            <else>
+                                <assign variable="ripeti" expression="true"/>
+                                <output expression="&quot;hai inserito un dato sbagliato, deve essere minore di 32. Riprova: &quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <assign variable="ripeti" expression="true"/>
+                        <output expression="&quot;hai inserito un dato sbagliato, deve essere maggiore di 0. Riprova: &quot;" newline="True"/>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="chiediIndirizzo" type="String" variable="indirizzo">
+        <parameters/>
+        <body>
+            <declare name="indirizzo" type="String" array="False" size=""/>
+            <output expression="&quot;Inserisci il tuo indirizzo:&quot;" newline="True"/>
+            <input variable="indirizzo"/>
+        </body>
+    </function>
+    <function name="chiediMeseNascita" type="Integer" variable="meseNascita">
+        <parameters/>
+        <body>
+            <declare name="meseNascita" type="Integer" array="False" size=""/>
+            <declare name="maggiorenne, ripeti" type="Boolean" array="False" size=""/>
+            <do expression="ripeti">
+                <output expression="&quot;inserisci il tuo mese di nascita: &quot;" newline="True"/>
+                <input variable="meseNascita"/>
+                <if expression="meseNascita&gt;0">
+                    <then>
+                        <if expression="meseNascita&lt;13">
+                            <then>
+                                <assign variable="ripeti" expression="false"/>
+                            </then>
+                            <else>
+                                <assign variable="ripeti" expression="true"/>
+                                <output expression="&quot;hai inserito un dato sbagliato, deve essere minore di 13. Riprova: &quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <assign variable="ripeti" expression="true"/>
+                        <output expression="&quot;hai inserito un dato sbagliato, deve essere maggiore di 0. Riprova: &quot;" newline="True"/>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="chiediNome" type="String" variable="nome">
+        <parameters/>
+        <body>
+            <declare name="nome" type="String" array="False" size=""/>
+            <output expression="&quot;Ciao inserisci il tuo nome: &quot;" newline="True"/>
+            <input variable="nome"/>
+        </body>
+    </function>
+    <function name="stampaMessaggioFinale" type="None" variable="">
+        <parameters>
+            <parameter name="nome" type="String" array="False"/>
+            <parameter name="cognome" type="String" array="False"/>
+            <parameter name="eta" type="Integer" array="False"/>
+            <parameter name="altezza" type="Real" array="False"/>
+            <parameter name="indirizzo" type="String" array="False"/>
+            <parameter name="giornoNascita" type="Integer" array="False"/>
+            <parameter name="meseNascita" type="Integer" array="False"/>
+            <parameter name="annoNascita" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <output expression="&quot;Ciao, ti chiami &quot; &amp; nome &amp; &quot; &quot; &amp; cognome &amp; &quot; la tua et&#224; &#232; &quot; &amp; eta &amp; &quot; anni e sei alto &quot; &amp; altezza &amp; &quot; metri&quot; &amp; &quot;, il tuo indirizzo &#232;: &quot; &amp; indirizzo &amp; &quot;il tuo giorno di nascita &#232; &quot; &amp; giornoNascita &amp; &quot; il tuo mese di nascita &#232; &quot; &amp; meseNascita &amp; &quot; il tuo anno di nascita &#233;: &quot; &amp; annoNascita &amp; &quot;. Arrivederci!&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
