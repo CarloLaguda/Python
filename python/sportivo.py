@@ -18,7 +18,16 @@ class Sportivo(Utente):
         
 
     def chiedi_squadra(self):
-        self.squadra = input("Inserisci la tua squadra preferita: ")
+        ripeti = True
+        while ripeti:
+            self.squadra = input("Inserisci la tua squadra preferita: ")
+            nome = input("Inserisci il tuo nome: ").strip()
+            if squadra.isalnum()():
+                self.squadra = squadra
+                break
+            else:
+                print("Errore: il nome deve contenere solo lettere.")
+       
 
     def chiedi_anni_tifo_squadra(self):
         oggi = datetime.today()
