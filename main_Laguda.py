@@ -1,24 +1,21 @@
-# main_Laguda.py
 # @author: Laguda Carlo
 # Classe: 3F
 # Data: 27/05/2024
 # Versione: 1.0.2
 
 import datetime
-from studente_Laguda import Studente
+from autousate_Laguda import AutoUsate
 
-def main():
-    today = datetime.datetime.today().strftime('%d/%m/%Y')
-    print("Buongiorno, oggi è il " + today + ". Inserisci le seguenti informazioni per intestare la tua pagella.")
+today = datetime.datetime.today().strftime('%d/%m/%Y')
+print("Buongiorno, oggi è il", today)
+print("inserisci le seguenti informazioni per inserire l'annuncio di vendita del tuo veicolo usato.")
 
-    studente = Studente()
-    studente.chiedi_nome()
-    studente.chiedi_cognome()
-    studente.chiedi_nomeIstituto()
-    studente.chiedi_classe()
-    studente.chiedi_Eta()
-    studente.chiedi_AnnoIscrizione()
-    studente.stampa_scheda_utente()
+auto_usate = AutoUsate()
+auto_usate.chiedi_nome()
+auto_usate.chiedi_cognome()
+auto_usate.chiedi_modello()
+auto_usate.chiedi_marca()
+auto_usate.chiedi_anno_immatricolazione()
+auto_usate.chiedi_prezzo_vendita()
+auto_usate.stampa_schede()
 
-if __name__ == "__main__":
-    main()
