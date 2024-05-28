@@ -1,9 +1,3 @@
-# autousate_Laguda.py
-# @author: Laguda Carlo
-# Classe: 3F
-# Data: 27/05/2024
-# Versione: 1.0.2
-
 import datetime
 
 class AutoUsate:
@@ -17,23 +11,29 @@ class AutoUsate:
 
     def chiedi_nome(self):
         while True:
-            nome = input("Inserisci il tuo nome (massimo 3 nomi): ").strip().upper()
-            nomi = nome.split()
-            if len(nomi) <= 3:
-                self.nome = nome
-                break
+            nome_inserito = input("Inserisci il tuo nome (massimo 3 nomi): ").strip().upper()
+            if nome_inserito.replace(' ', '').isalpha():  # Controllo anche per spazi
+                nome = nome_inserito.split()
+                if len(nome) <= 3:
+                    self.nome = nome
+                    break
+                else:
+                    print("Puoi inserire massimo 3 nomi contenenti solo lettere.")
             else:
-                print("Puoi inserire massimo 3 nomi contenenti solo lettere.")
+                print("Il nome deve contenere solo caratteri alfabetici")
 
     def chiedi_cognome(self):
         while True:
             cognome = input("Inserisci il tuo cognome (massimo 3 cognomi): ").strip().upper()
-            cognomi = cognome.split()
-            if len(cognomi) <= 3:
-                self.cognome = cognome
-                break
+            if cognome.replace(' ', '').isalpha():  # Controllo anche per spazi
+                cognomi = cognome.split()
+                if len(cognomi) <= 3:
+                    self.cognome = cognomi
+                    break
+                else:
+                    print("Puoi inserire massimo 3 cognomi contenenti solo lettere.")
             else:
-                print("Puoi inserire massimo 3 cognomi contenenti solo lettere.")
+                print("Il cognome deve contenere solo caratteri alfabetici")
 
     def chiedi_modello(self):
         self.modello = input("Inserisci il modello dell'auto da vendere: ").strip().upper()
@@ -50,7 +50,7 @@ class AutoUsate:
                     self.anno_immatricolazione = anno_immatricolazione
                     break
                 else:
-                    print("Il dato inserito è errato, deve essere un numero intero maggiore di 1900 e minore o uguale a " + str(anno_Corrente) + ".")
+                    print("Il dato inserito è errato, deve essere un numero intero maggiore di 1960 e minore o uguale a " + str(anno_Corrente) + ".")
             except ValueError:
                 print("Il dato inserito è assurdo, riprova.")
 
@@ -73,8 +73,8 @@ class AutoUsate:
                 if n_schede > 0:
                     for _ in range(n_schede):
                         print("*********************************")
-                        print("Nome: " + self.nome)
-                        print("Cognome: " + self.cognome)
+                        print("Nome: " + " ".join(self.nome))
+                        print("Cognome: " + " ".join(self.cognome))
                         print("Modello dell'auto: " + self.modello)
                         print("Marca dell'auto: " + self.marca)
                         print("Anno di immatricolazione: " + str(self.anno_immatricolazione))
@@ -85,3 +85,4 @@ class AutoUsate:
                     print("Il numero di schede deve essere maggiore di zero.")
             except ValueError:
                 print("Il numero di schede deve essere un numero intero positivo.")
+
